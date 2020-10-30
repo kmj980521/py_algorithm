@@ -1,0 +1,19 @@
+def pin(A):
+    count = 1 #pin의 수 처음 요소 하나는 무조건 핀으로 고정돼야함.
+    k=0
+    for i in range(1,len(A)):
+        if A[i][0] > A[k][1]:
+            count+=1
+            k=i
+    return count
+n= int(input())
+sticks=[]
+
+for i in range(n):
+    sticks.append(list(map(int,input().split())))
+
+sticks.sort(key=lambda x:x[1])
+
+pin_num=pin(sticks)
+print(pin_num)
+
